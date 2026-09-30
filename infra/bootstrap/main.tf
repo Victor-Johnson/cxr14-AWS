@@ -9,10 +9,11 @@ locals {
 }
 
 resource "aws_s3_bucket" "state" {
-  bucket = local.state_bucket_name
+  bucket        = local.state_bucket_name
+  force_destroy = true # allows `terraform destroy` to delete the bucket even if it still has objects in it
 
   lifecycle {
-    prevent_destroy = true # Terraform refuses to delete this by accident
+    # prevent_destroy = true # Terraform refuses to delete this by accident
   }
 }
 
