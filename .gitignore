@@ -13,3 +13,5 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+#Jupyter notebooks
+.ipynb_checkpoints/
