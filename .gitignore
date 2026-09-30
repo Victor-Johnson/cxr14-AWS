@@ -16,3 +16,7 @@ tfplan*
 
 #Jupyter notebooks
 .ipynb_checkpoints/
+
+notebooks/*.parquet
+notebooks/data/
+tfplan*
