@@ -1,8 +1,11 @@
 data "aws_caller_identity" "current" {}
 
+resource "random_id" "suffix" {
+  byte_length = 4
+}
 locals {
   # Bucket names are globally unique, so the account ID makes a clash unlikely
-  state_bucket_name = "cxr14-tfstate-${data.aws_caller_identity.current.account_id}"
+  state_bucket_name = "cxr14-tfstate-${random_id.suffix.hex}"
 }
 
 resource "aws_s3_bucket" "state" {
